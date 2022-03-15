@@ -17,7 +17,7 @@ public class Triangle {
         this.vthree=new MyPoint(x3,y3);
     }
     public double getPerimeter(){
-        return vone.distance()+vtwo.distance()+vthree.distance();
+        return vone.distance(vtwo)+vtwo.distance(vthree)+vthree.distance(vone);
     }
     public String getType(){
         String res="Type: ";
