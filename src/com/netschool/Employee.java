@@ -1,5 +1,7 @@
 package com.netschool;
 
+import java.util.Objects;
+
 public class Employee {
     private int id;
     private String firstName;
@@ -38,6 +40,18 @@ public class Employee {
         return salary;
     }
 
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        Employee employee = (Employee) o;
+        return this.id == employee.id && this.salary == employee.salary && Objects.equals(this.firstName, employee.firstName) && Objects.equals(this.lastName, employee.lastName);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(this.id, this.firstName, this.lastName, this.salary);
+    }
 
     @Override
     public String toString() {

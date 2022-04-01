@@ -14,10 +14,13 @@ public class HomeOneSecondTask {
         Books book = new Books("Harry Potter",new Author[]{new Author("J.Rouling","@gdgdg",'f'),new Author("TET","@ewge",'m')},100.0,5 );
         book.getAuthors();
         System.out.println(book.getAuthorsName());*/
-        Triangle triangle=new Triangle(new MyPoint(4,3),new MyPoint(3,4),new MyPoint(0,0));
-        Triangle triangle1=new Triangle(2,3,4,5,6,5);
-        System.out.println(triangle.getType());
-        System.out.println(triangle1.getType());
+        Books book = new Books("Harry",100,5,new Author("jr","@good",'f'),new Author("ted","@fag",'m'));
+        System.out.println(book);
+        Triangle triangle1= new Triangle(new MyPoint(4,5),new MyPoint(5,5),new MyPoint(6,6));
+        Triangle triangle2= new Triangle(new MyPoint(4,5),new MyPoint(5,5),new MyPoint(6,6));
+        System.out.println(triangle1.equals(triangle2));
+        System.out.println(triangle1.hashCode());
+        System.out.println(triangle2.hashCode());
 
 
 

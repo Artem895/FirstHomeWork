@@ -1,5 +1,7 @@
 package com.netschool;
 
+import java.util.Objects;
+
 public class Triangle {
     private MyPoint vone;
     private MyPoint vtwo;
@@ -31,6 +33,19 @@ public class Triangle {
             res+="Разносторонний";
         }
         return res;
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        Triangle triangle = (Triangle) o;
+        return Objects.equals(vone, triangle.vone) && Objects.equals(vtwo, triangle.vtwo) && Objects.equals(vthree, triangle.vthree);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(vone, vtwo, vthree);
     }
 
     @Override

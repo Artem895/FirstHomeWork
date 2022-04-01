@@ -1,6 +1,7 @@
 package com.netschool;
 
 import java.util.Arrays;
+import java.util.Objects;
 
 public class Books {
     private String name;
@@ -8,7 +9,7 @@ public class Books {
     private double price;
     private int qty=0;
 
-    public Books(String name , Author[] authors, double price, int qty) {
+    public Books(String name, double price, int qty, Author... authors) {
         this.name=name;
         this.price=price;
         this.qty=qty;
@@ -46,6 +47,21 @@ public class Books {
             res+=(a.getName()+" ");
         }
         return res;
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        Books books = (Books) o;
+        return Double.compare(books.price, this.price) == 0 && this.qty == books.qty && Objects.equals(this.name, books.name) && Arrays.equals(this.authors, books.authors);
+    }
+
+    @Override
+    public int hashCode() {
+        int result = Objects.hash(this.name, this.price, this.qty);
+        result = 31 * result + Arrays.hashCode(this.authors);
+        return result;
     }
 
     @Override

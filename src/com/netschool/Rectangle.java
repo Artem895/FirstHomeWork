@@ -1,5 +1,7 @@
 package com.netschool;
 
+import java.util.Objects;
+
 public class Rectangle {
     private float length= 1.0F;
     private float width= 1.0F;
@@ -32,6 +34,19 @@ public class Rectangle {
     }
     public double getPerimeter(){
         return 2*length+2*width;
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        Rectangle rectangle = (Rectangle) o;
+        return Float.compare(rectangle.length, this.length) == 0 && Float.compare(rectangle.width, this.width) == 0;
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(this.length, this.width);
     }
 
     @Override
